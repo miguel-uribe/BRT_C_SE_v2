@@ -408,7 +408,7 @@ std::array<std::array<std::array<std::array<std::array<int, L>, Nmax>, nkind>, n
             //if((RC[dir][ordest][kind][y][x]==1) && (RC[dir][ordest][kind][y][x-BUSESPAR[15][i]+1]==1)){
                 // we calculate the gaps
                 gapsl(i, BUSESPAR);
-                // once the bus has stopped, the EL is larger in the main lane and the bus is willing to change
+                // once the bus has stopped, or for the non-stop buses, the EL is larger in the main lane and the bus is willing to change
                 if (EL[dir][ordest][kind][y][x]<EL[dir][ordest][kind][0][x]){
                     // we update the change willing parameter
                     BUSESPAR[19][i] = 1;
