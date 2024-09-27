@@ -359,7 +359,7 @@ std::array<std::array<std::array<std::array<std::array<int, L>, Nmax>, nkind>, n
                                 }*/
                          }
                     }
-
+                    
                     // 3) The bus is going south, with destination NQS, and it is close to the end of lane, it has already stopped
                     else if ((ordest==1) && (dir==1) && (EL[dir][ordest][kind][y][x]<2*busL[1]) & (BUSESPAR[7][i]>10000)){
                         // we update the change willing parameter
@@ -375,12 +375,11 @@ std::array<std::array<std::array<std::array<std::array<int, L>, Nmax>, nkind>, n
                                 newy[i] = 1;
                                 // the change willing is returned to zero
                                 BUSESPAR[19][i]=0;
-                                /*if (BUSESPAR[13][i]==470){
-                                    std::cout<<"cambio a stop por regla 3 en"<<BUSESPAR[14][i]<<std::endl;
-                                }*/
-                         }
+                             }
                     }
+                    
 
+                   
                     // 4) The bus is going south, far from the end of lane, but there are no obstacles, it has already stopped
                     else if ((ordest==1) && (dir==1) & (BUSESPAR[4][i]>(EL[dir][ordest][kind][y][x])) & (BUSESPAR[7][i]>10000))
                     {
@@ -395,11 +394,9 @@ std::array<std::array<std::array<std::array<std::array<int, L>, Nmax>, nkind>, n
                                 newy[i] = 1;
                                 // the change willing is returned to zero
                                 BUSESPAR[19][i]=0;
-                                /*if (BUSESPAR[13][i]==470){
-                                    std::cout<<"cambio a stop por regla 4 en"<<BUSESPAR[14][i]<<std::endl;
-                                }*/
                          }
-                    }                    
+                    }   
+                                     
                 }
             }
         }
@@ -434,6 +431,7 @@ std::array<std::array<std::array<std::array<std::array<int, L>, Nmax>, nkind>, n
                 // the change here is driven by two conditions
                 // the bus is still far from its stop
                 // there is more space in the main lane than in the stopping lane
+                /*
                 else if((BUSESPAR[3][i]<BUSESPAR[4][i]) & (BUSESPAR[3][i]<EL[dir][ordest][kind][0][x]) & ((BUSESPAR[7][i]-x)>distmin))
                 {
                     // we update the change willing parameter
@@ -448,12 +446,10 @@ std::array<std::array<std::array<std::array<std::array<int, L>, Nmax>, nkind>, n
                         newy[i] = 0;
                         // the change willing is returned to zero
                         BUSESPAR[19][i]=0;
-                        /*if (BUSESPAR[13][i]==470){
-                            std::cout<<"cambio a main por regla 2 en"<<BUSESPAR[14][i]<<std::endl;
-                        }*/
                     }
                 }
-                // For buses going south, with destination NQS, there is also the possibility to move to the main lane in case they find an obstacle, only if they have already stopped and they are far from the end of lane
+                
+               // For buses going south, with destination NQS, there is also the possibility to move to the main lane in case they find an obstacle, only if they have already stopped and they are far from the end of lane
                 else if((BUSESPAR[7][i]>100000) && (ordest==1) && (dir==1) && (BUSESPAR[3][i]<BUSESPAR[4][i]) && (BUSESPAR[3][i]<EL[dir][ordest][kind][0][x]) && (EL[dir][ordest][kind][0][x]>2*busL[1])){
                     // we update the change willing parameter
                     BUSESPAR[19][i] = 1;
@@ -467,11 +463,9 @@ std::array<std::array<std::array<std::array<std::array<int, L>, Nmax>, nkind>, n
                         newy[i] = 0;
                         // the change willing is returned to zero
                         BUSESPAR[19][i]=0;
-                        /*if (BUSESPAR[13][i]==470){
-                            std::cout<<"cambio a main por regla 3 en"<<BUSESPAR[14][i]<<std::endl;
-                        }*/
                     }
-                }                
+                }   
+                */          
             }
         }
     }
